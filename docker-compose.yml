@@ -1,11 +1,11 @@
 
 version: '3'
 services:
-  wanglab-jupyter:
+  wanglab-jupyter-template:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: wanglab-jupyter
+    container_name: wanglab-jupyter-template
     volumes:
       - ./src:/home/jovyan/work/src:rw
       - ./data:/home/jovyan/work/data:rw
