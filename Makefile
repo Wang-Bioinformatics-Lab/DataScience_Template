@@ -1,6 +1,6 @@
 
 jupyter-compose:
-	docker-compose -f docker-compose.yml up --compatibility
+	docker-compose -f docker-compose.yml --compatibility up
 
 jupyter-compose-background:
-	docker-compose -f docker-compose.yml up -d --compatibility
+	docker-compose -f docker-compose.yml --compatibility up -d
