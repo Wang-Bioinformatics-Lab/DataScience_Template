@@ -16,3 +16,8 @@ services:
      resources:
        limits:
          memory: 16000M
+    environment:
+      VIRTUAL_HOST: test.wanglab.science
+      VIRTUAL_PORT: 9000
+      LETSENCRYPT_HOST: test.wanglab.science
+      LETSENCRYPT_EMAIL: miw023@ucsd.edu
