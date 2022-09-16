@@ -1,0 +1,22 @@
+version: '3'
+services:
+  wanglab-coder-template:
+    build:
+      context: .
+      dockerfile: Dockerfile.coder
+    container_name: wanglab-coder-template
+    volumes:
+      - .:/config/workspace:rw
+    ports:
+    - "8443:8443"
+    restart: unless-stopped
+    #command: jupyter lab --ip='*' --port=9000 --no-browser --NotebookApp.token='YOUR_PASSWORD' --allow-root
+    deploy:
+     resources:
+       limits:
+         memory: 16000M
+    environment:
+      - PUID=1000
+      - PGID=1000
+    labels:
+      - traefik.http.routers.backend.rule=Host(`test.wanglab.science`)
