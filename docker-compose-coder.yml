@@ -10,7 +10,6 @@ services:
     ports:
     - "8443:8443"
     restart: unless-stopped
-    #command: jupyter lab --ip='*' --port=9000 --no-browser --NotebookApp.token='YOUR_PASSWORD' --allow-root
     deploy:
      resources:
        limits:
@@ -18,5 +17,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      - TZ=US/Pacific
+      - PASSWORD=YOUR_PASSWORD
     labels:
       - traefik.http.routers.backend.rule=Host(`test.wanglab.science`)
