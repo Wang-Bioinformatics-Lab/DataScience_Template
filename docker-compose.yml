@@ -9,10 +9,12 @@ services:
     volumes:
       - .:/home/jovyan/work:rw
     ports:
-    - "9000:8888"
+    - "9000:9000"
     restart: unless-stopped
-    command: jupyter lab --ip='*' --port=8888 --no-browser --NotebookApp.token='YOUR_PASSWORD' --allow-root
+    command: jupyter lab --ip='*' --port=9000 --no-browser --NotebookApp.token='YOUR_PASSWORD' --allow-root
     deploy:
      resources:
        limits:
          memory: 16000M
+    labels:
+      - traefik.http.routers.backend.rule=Host(`test.wanglab.science`)
