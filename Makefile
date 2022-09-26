@@ -10,3 +10,7 @@ jupyter-compose-background:
 coder-compose:
 	docker-compose -f docker-compose-coder.yml build
 	docker-compose -f docker-compose-coder.yml --compatibility up
+
+coder-compose-background:
+	docker-compose -f docker-compose-coder.yml build
+	docker-compose -f docker-compose-coder.yml --compatibility up -d
