@@ -11,7 +11,7 @@ services:
     ports:
     - "9000:9000"
     restart: unless-stopped
-    command: jupyter lab --ip='*' --port=9000 --no-browser --NotebookApp.token='${LOGINPASSWORD}' --allow-root
+    command: jupyter lab --ip='*' --port=9000 --no-browser --NotebookApp.token='${LOGINPASSWORD:-PASSWORD}' --allow-root
     deploy:
      resources:
        limits:
