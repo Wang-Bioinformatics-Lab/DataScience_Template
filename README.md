@@ -5,7 +5,7 @@ Here we are able to launch a notebook inside of docker with all the dependencies
 ### Customizing Docker for you
 
 1. Update dependencies - change the requirements.txt
-1. Update your password - create an .env file with LOGINPASSWORD="YOUR_PASSWORD" or else it will not be available
+1. Update your password - create an .env file with LOGINPASSWORD=YOUR_PASSWORD or else it will not be available
 1. Update the port for the server - change port 9000 to something around 9000, but not 9000 in docker-compose.yml or docker-compose-coder.yml
 1. Change the name of the container - change wanglab-jupyter in docker-compose.yml or docker-compose-coder.yml
 
