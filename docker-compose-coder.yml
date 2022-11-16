@@ -19,5 +19,8 @@ services:
       - PGID=1000
       - TZ=US/Pacific
       - PASSWORD=${LOGINPASSWORD:-PASSWORD}
-    labels:
-      - traefik.http.routers.backend.rule=Host(`test.wanglab.science`)
+    environment:
+      VIRTUAL_HOST: codertemplate.wanglab.science
+      VIRTUAL_PORT: 8443
+      LETSENCRYPT_HOST: codertemplate.wanglab.science
+      LETSENCRYPT_EMAIL: mwang87@gmail.com
