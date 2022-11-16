@@ -16,5 +16,8 @@ services:
      resources:
        limits:
          memory: 16000M
-    labels:
-      - traefik.http.routers.backend.rule=Host(`test.wanglab.science`)
+    environment:
+      VIRTUAL_HOST: jupytertemplate.wanglab.science
+      VIRTUAL_PORT: 9000
+      LETSENCRYPT_HOST: jupytertemplate.wanglab.science
+      LETSENCRYPT_EMAIL: mwang87@gmail.com
