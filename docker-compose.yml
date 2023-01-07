@@ -12,6 +12,9 @@ services:
     - "9000:9000"
     restart: unless-stopped
     command: jupyter lab --ip='*' --port=9000 --no-browser --NotebookApp.token='${LOGINPASSWORD:-PASSWORD}' --allow-root
+    networks:
+    - default
+    - nginx-net
     deploy:
      resources:
        limits:
@@ -21,3 +24,8 @@ services:
       VIRTUAL_PORT: 9000
       LETSENCRYPT_HOST: jupytertemplate.wanglab.science
       LETSENCRYPT_EMAIL: mwang87@gmail.com
+
+networks:
+  nginx-net:
+    external:
+      name: nginx-net

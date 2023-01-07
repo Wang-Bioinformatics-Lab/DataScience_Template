@@ -10,6 +10,9 @@ services:
     ports:
     - "8443:8443"
     restart: unless-stopped
+    networks:
+    - default
+    - nginx-net
     deploy:
      resources:
        limits:
@@ -19,8 +22,13 @@ services:
       - PGID=1000
       - TZ=US/Pacific
       - PASSWORD=${LOGINPASSWORD:-PASSWORD}
-    environment:
-      VIRTUAL_HOST: codertemplate.wanglab.science
-      VIRTUAL_PORT: 8443
-      LETSENCRYPT_HOST: codertemplate.wanglab.science
-      LETSENCRYPT_EMAIL: mwang87@gmail.com
+      - VIRTUAL_HOST=codertemplate.wanglab.science
+      - VIRTUAL_PORT=8443
+      - LETSENCRYPT_HOST=codertemplate.wanglab.science
+      - LETSENCRYPT_EMAIL=mwang87@gmail.com
+
+
+networks:
+  nginx-net:
+    external:
+      name: nginx-net
