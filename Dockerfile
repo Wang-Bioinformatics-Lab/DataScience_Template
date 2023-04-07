@@ -3,6 +3,7 @@ from jupyter/datascience-notebook:lab-3.4.4
 COPY requirements.txt /
 RUN pip install -r /requirements.txt
 RUN pip install jupyterlab-git
+RUN pip install git+https://github.com/Wang-Bioinformatics-Lab/GNPSDataPackage.git@cff3f96d27666c3232c66fe6a470d1ce451e2e85
 RUN pip install itables
 
 ## Setting up the proper premissions
